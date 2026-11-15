@@ -1,0 +1,6 @@
+
+# ---- Volumen additions ----
+/lynx.stamp
+/src/lynx
+*.gcda
+*.gcno

@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "note": "Each browser answers `--vinculum-caps` with its own object on stdout as JSON. This file is the expected answer, kept here so the ladder can be planned and tested without running every binary.",
+  "tiers": {
+    "aetheris": {
+      "tier": 0,
+      "repo": "https://github.com/drsamonline/The_Browser",
+      "engine": "own C++ engine (Ladybird lineage)",
+      "javascript": true,
+      "css_level": "modern subset",
+      "images": [
+        "png",
+        "jpeg",
+        "gif",
+        "webp",
+        "svg"
+      ],
+      "http2": false,
+      "http3": false,
+      "forms": true,
+      "cookies": true,
+      "headless": false,
+      "dump_formats": [],
+      "rss_idle_mb": 220
+    },
+    "nodus": {
+      "tier": 1,
+      "repo": "https://github.com/drsamonline/nodus",
+      "engine": "own C engine (NetSurf lineage)",
+      "javascript": "optional (Duktape)",
+      "css_level": "CSS 2.1 plus flex",
+      "images": [
+        "png",
+        "jpeg",
+        "gif",
+        "webp",
+        "svg",
+        "bmp",
+        "jxl"
+      ],
+      "http2": false,
+      "http3": false,
+      "forms": true,
+      "cookies": true,
+      "headless": true,
+      "dump_formats": [
+        "png",
+        "text",
+        "pdf"
+      ],
+      "rss_idle_mb": 45
+    },
+    "sorex": {
+      "tier": 2,
+      "repo": "https://github.com/drsamonline/sorex",
+      "engine": "own C engine (Dillo lineage)",
+      "javascript": false,
+      "css_level": "CSS 2.1 subset",
+      "images": [
+        "png",
+        "jpeg",
+        "gif",
+        "webp",
+        "svg"
+      ],
+      "http2": false,
+      "http3": false,
+      "forms": true,
+      "cookies": true,
+      "headless": false,
+      "dump_formats": [
+        "text"
+      ],
+      "rss_idle_mb": 18
+    },
+    "volumen": {
+      "tier": 3,
+      "repo": "https://github.com/drsamonline/volumen",
+      "engine": "own C engine (Lynx lineage)",
+      "javascript": false,
+      "css_level": "none (structure only)",
+      "images": [],
+      "http2": false,
+      "http3": false,
+      "forms": true,
+      "cookies": true,
+      "headless": true,
+      "dump_formats": [
+        "text",
+        "markdown",
+        "json"
+      ],
+      "rss_idle_mb": 6
+    }
+  }
+}

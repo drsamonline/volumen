@@ -1,0 +1,29 @@
+#!/bin/sh
+# vinculum-open - walk the family ladder and exec the cheapest browser that can
+# handle this URL. See shared/vinculum/handoff-protocol.md.
+set -eu
+LADDER="volumen sorex nodus aetheris"
+NEEDS=""
+while [ $# -gt 0 ]; do
+  case "$1" in
+    --needs) NEEDS="$NEEDS $2"; shift 2 ;;
+    --ladder) LADDER="$2"; shift 2 ;;
+    -h|--help) echo "usage: vinculum-open [--needs images|js|forms|text-only] URL"; exit 0 ;;
+    *) URL="$1"; shift ;;
+  esac
+done
+[ -n "${URL:-}" ] || { echo "usage: vinculum-open URL" >&2; exit 64; }
+
+for tier in $LADDER; do
+  command -v "$tier" >/dev/null 2>&1 || continue
+  case "$NEEDS" in
+    *js*)       [ "$tier" = "aetheris" ] || continue ;;
+    *images*)   [ "$tier" = "volumen" ] && continue ;;
+    *text-only*) [ "$tier" = "volumen" ] || continue ;;
+  esac
+  "$tier" "$URL"; rc=$?
+  [ "$rc" -eq 75 ] && continue
+  exit "$rc"
+done
+echo "vinculum-open: no tier can open this" >&2
+exit 69

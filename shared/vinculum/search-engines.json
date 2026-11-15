@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "default": "ddg-lite",
+  "engines": [
+    {
+      "id": "ddg-lite",
+      "name": "DuckDuckGo Lite",
+      "url": "https://lite.duckduckgo.com/lite/?q=%s",
+      "needs_js": false
+    },
+    {
+      "id": "mojeek",
+      "name": "Mojeek",
+      "url": "https://www.mojeek.com/search?q=%s",
+      "needs_js": false
+    },
+    {
+      "id": "marginalia",
+      "name": "Marginalia",
+      "url": "https://search.marginalia.nu/search?query=%s",
+      "needs_js": false
+    },
+    {
+      "id": "wiby",
+      "name": "Wiby",
+      "url": "https://wiby.me/?q=%s",
+      "needs_js": false
+    },
+    {
+      "id": "wikipedia",
+      "name": "Wikipedia",
+      "url": "https://en.wikipedia.org/w/index.php?search=%s",
+      "needs_js": false
+    },
+    {
+      "id": "hn",
+      "name": "Hacker News",
+      "url": "https://hn.algolia.com/?q=%s",
+      "needs_js": false
+    },
+    {
+      "id": "google-njs",
+      "name": "Google (no-JS)",
+      "url": "https://www.google.com/search?q=%s&gbv=1",
+      "needs_js": false,
+      "note": "degrades often; listed for completeness only"
+    }
+  ]
+}

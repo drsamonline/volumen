@@ -1,0 +1,278 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/drsamonline/sorex/shared/vinculum/config.schema.json",
+  "title": "Vinculum user configuration",
+  "description": "One configuration document read by all four Aetheris family browsers.",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "schema_version"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "integer",
+      "const": 1
+    },
+    "profile": {
+      "type": "string",
+      "enum": [
+        "minimal",
+        "balanced",
+        "full"
+      ],
+      "default": "minimal",
+      "description": "Coarse preset; explicit keys below always win."
+    },
+    "rendering": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "images": {
+          "type": "boolean",
+          "default": true
+        },
+        "image_formats": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "png",
+              "jpeg",
+              "gif",
+              "webp",
+              "svg",
+              "bmp",
+              "jxl",
+              "avif"
+            ]
+          },
+          "default": [
+            "png",
+            "jpeg",
+            "gif",
+            "webp",
+            "svg"
+          ]
+        },
+        "css": {
+          "type": "boolean",
+          "default": true
+        },
+        "javascript": {
+          "type": "string",
+          "enum": [
+            "never",
+            "on_request",
+            "always"
+          ],
+          "default": "never",
+          "description": "T2 and T3 clamp this to 'never' and say so in the log."
+        },
+        "fonts": {
+          "type": "string",
+          "enum": [
+            "core",
+            "system",
+            "custom"
+          ],
+          "default": "core"
+        },
+        "animations": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
+    "network": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "user_agent": {
+          "type": "string",
+          "default": "vinculum/1"
+        },
+        "http2": {
+          "type": "boolean",
+          "default": true
+        },
+        "http3": {
+          "type": "boolean",
+          "default": false
+        },
+        "tls_min": {
+          "type": "string",
+          "enum": [
+            "1.2",
+            "1.3"
+          ],
+          "default": "1.2"
+        },
+        "dns_over_https": {
+          "type": "boolean",
+          "default": false
+        },
+        "doh_endpoint": {
+          "type": "string"
+        },
+        "proxy": {
+          "type": "string"
+        },
+        "timeout_seconds": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 30
+        },
+        "max_redirects": {
+          "type": "integer",
+          "minimum": 0,
+          "default": 10
+        }
+      }
+    },
+    "memory": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "max_rss_mb": {
+          "type": "integer",
+          "minimum": 4,
+          "default": 64
+        },
+        "cache_mb": {
+          "type": "integer",
+          "minimum": 0,
+          "default": 8
+        },
+        "image_cache_mb": {
+          "type": "integer",
+          "minimum": 0,
+          "default": 4
+        },
+        "evict_before_oom": {
+          "type": "boolean",
+          "default": true
+        }
+      }
+    },
+    "privacy": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "history": {
+          "type": "boolean",
+          "default": false
+        },
+        "cookies": {
+          "type": "string",
+          "enum": [
+            "never",
+            "session",
+            "persist"
+          ],
+          "default": "session"
+        },
+        "referrer": {
+          "type": "string",
+          "enum": [
+            "none",
+            "origin",
+            "full"
+          ],
+          "default": "none"
+        },
+        "telemetry": {
+          "type": "boolean",
+          "const": false
+        },
+        "clear_on_exit": {
+          "type": "boolean",
+          "default": true
+        }
+      }
+    },
+    "handoff": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "ladder": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "volumen",
+              "sorex",
+              "nodus",
+              "aetheris"
+            ]
+          },
+          "default": [
+            "volumen",
+            "sorex",
+            "nodus",
+            "aetheris"
+          ]
+        },
+        "auto_promote": {
+          "type": "boolean",
+          "default": false
+        },
+        "announce": {
+          "type": "boolean",
+          "default": true
+        }
+      }
+    },
+    "ui": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "theme": {
+          "type": "string",
+          "enum": [
+            "light",
+            "dark",
+            "auto"
+          ],
+          "default": "auto"
+        },
+        "tabs": {
+          "type": "string",
+          "enum": [
+            "none",
+            "horizontal",
+            "vertical"
+          ],
+          "default": "horizontal"
+        },
+        "statusbar": {
+          "type": "boolean",
+          "default": true
+        },
+        "keys_file": {
+          "type": "string",
+          "default": "keybindings.toml"
+        },
+        "font_size_pt": {
+          "type": "number",
+          "minimum": 6,
+          "maximum": 32,
+          "default": 10
+        }
+      }
+    },
+    "search": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "default": {
+          "type": "string",
+          "default": "ddg-lite"
+        },
+        "engines_file": {
+          "type": "string",
+          "default": "search-engines.json"
+        }
+      }
+    }
+  }
+}

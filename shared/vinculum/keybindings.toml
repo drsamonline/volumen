@@ -1,0 +1,50 @@
+# Vinculum shared keymap
+# One keymap for the family. A tier that has no such concept ignores the binding
+# and logs it at debug level. Browser-specific escapes live in [sorex]/[nodus]/[volumen].
+
+[global]
+quit            = "q"
+quit_force      = "Q"
+help            = "?"
+open_location   = ":"
+reload          = "r"
+back            = "H"
+forward         = "L"
+next_tab        = "J"
+prev_tab        = "K"
+new_tab         = "t"
+close_tab       = "x"
+scroll_down     = "j"
+scroll_up       = "k"
+scroll_page_down = " "
+scroll_page_up  = "b"
+scroll_top      = "g g"
+scroll_bottom   = "G"
+find            = "/"
+find_next       = "n"
+copy_url        = "y u"
+copy_text       = "y t"
+zoom_in         = "+"
+zoom_out        = "-"
+zoom_reset      = "0"
+source_view     = "S"
+dump_text       = "d t"
+dump_markdown   = "d m"
+dump_json       = "d j"
+handoff_up      = ">"
+handoff_down    = "<"
+toggle_images   = "i"
+toggle_css      = "c"
+
+[nodus]
+open_framebuffer = "F"
+open_text_frontend = "T"
+
+[sorex]
+toggle_script_blocking = "c"
+control_socket_status  = "C"
+
+[volumen]
+print_dump      = "p"
+next_link       = "\t"
+prev_link       = "\b"
