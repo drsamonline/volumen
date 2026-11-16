@@ -7,7 +7,12 @@ does not start.
 Phases are deliberately short. A phase that cannot be finished in six to ten weeks of
 evenings is a phase that will be abandoned, so scope is cut before dates move.
 
-## P0 - Scaffold (November 2026)
+## P0 - Scaffold
+
+**Before any P0 task: read `docs/UPSTREAM-FIRST.md`.** The vendored tree is upstream
+at the pinned commit, so the feature being built usually already exists there. For
+each item taken from `INNOVATIONS.md`, find its prior art first and note in the
+commit message what upstream does and what this fork changes. (November 2026)
 
 Upstream imported at `7f67078`, documentation written, build script and golden-test
 harness in place, shared Vinculum contract in place.

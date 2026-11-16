@@ -183,3 +183,24 @@ size budget in CI, and a reproducible artifact.
 **Measured by.** Binary size, `ldd` output, and a run inside an empty Alpine container.
 
 **Risk.** Low. Unglamorous, and it is the reason a text browser is worth keeping.
+
+## Prior art in this tree
+
+Every item below already has a home upstream. Read it before designing the
+replacement — the text renderer is ten thousand lines of solved problems.
+
+| Innovation | Where upstream already does part of this |
+| --- | --- |
+| I1 structured dump | `src/GridText.c` (the renderer), `src/HTML.c` (the callbacks that already see every element) |
+| I2 determinism | `src/GridText.c`, `src/LYMain.c` (where locale and time leak in) |
+| I3 structure-aware text flow | `src/GridText.c` (the wrapping and table code to feed) |
+| I4 HTTP/2 and reuse | `WWW/Library/Implementation/` (`HTAccess.c`, `HTTCP.c`) |
+| I5 scriptable forms | `src/LYForms.c`, `src/HTForms.h` |
+| I6 batch mode | `src/LYMain.c` (the option and startup path) |
+| I7 readability reducer | `src/HTML.c` (the structure the scoring needs) |
+| I8 arena allocator | `src/GridText.c` (per-cell allocation) |
+| I9 protocol plugins | `WWW/Library/Implementation/HTAccess.c` (the protocol dispatch) |
+| I10 static builds | `configure.in`, `makefile.in` |
+
+`src/GridText.c` is where every rendering change starts and ends. Read its existing
+wrapping and table code before adding a path beside it.
