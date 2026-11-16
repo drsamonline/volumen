@@ -12,7 +12,12 @@ family; Volumen is tier 3, the cheapest tier and the automation entry point.
 
 ## Read before you type
 
-In this order:
+In this order, and the first one is not optional:
+
+0. `docs/UPSTREAM-FIRST.md` - this tree is a fork; read the vendored source for the
+   feature before designing it, and read Ladybird's `Libraries/LibWeb` for anything
+   interaction-shaped (focus, events, style invalidation).
+
 
 1. `FAMILY.md` - the four tiers, the Vinculum contract, and the licence firewall.
 2. `SOURCES.md` - the pinned upstream commit, and why the upstream mirror is odd.

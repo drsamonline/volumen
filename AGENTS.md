@@ -5,6 +5,10 @@ Working rules for coding agents in this repository. Humans should read
 
 ## Read order
 
+`docs/UPSTREAM-FIRST.md` first — this tree is a fork, so the answer to "how should
+this work" is already on disk. Read the vendored source before designing anything,
+and read `Libraries/LibWeb` (Ladybird) for anything interaction-shaped.
+
 `FAMILY.md` -> `SOURCES.md` -> `PLAN.md` -> `DESIGN.md` -> `INNOVATIONS.md` ->
 `ROADMAP.md` -> `PATCHES.md`.
 
