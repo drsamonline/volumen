@@ -44,3 +44,16 @@ Run the command, paste the output. A claim without a command is folklore.
 | Tests, fixtures, golden dumps | `test/` |
 | Our documentation | `docs/` |
 | Shared family specs (do not diverge) | `shared/vinculum/` |
+
+## Check the instrument before the subject
+
+Reading upstream first is half of it. The other half is not blaming the engine for a bad measurement. In
+Aetheris on 2026-11-17, three investigations blamed the browser and were wrong three times: a pixel sample
+read as a picture, a verdict string a script computed backwards, and a colour assertion that also matched
+white. The engine was correct throughout.
+
+1. Print the raw value, never a derived verdict (`print(pixel)`, not `print("SIDE-BY-SIDE")`).
+2. Test a colour as that colour, never as "not the other one" — white matches most careless tests.
+3. Look at the rendered frame before reasoning from coordinates.
+4. A control case must be able to come out the other way; if it cannot, it proves nothing.
+
